@@ -1,0 +1,23 @@
+﻿<html>
+<head>
+<title>Connecting to a Database</title>
+</head>
+<body>
+
+<?php
+$servername = "localhost:3306";
+$username = "root";
+$password = "";
+$dbname = "prabhugl_careers";
+
+$conn = mysql_connect('localhost:3306','root','',');
+$db=mysql_select_db('prabhugl_careers');
+
+if ($conn) {
+echo 'Connected successfully.';
+} else{
+die('Error.');
+}
+?>
+</body>
+</html>

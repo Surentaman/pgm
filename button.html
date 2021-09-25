@@ -1,0 +1,35 @@
+﻿<?php
+function call($action){
+$hostname = "localhost";
+$username = "prabhugl";
+$password = "";
+$dbname = "prabhugl_careers";
+$usertable ="careers";
+
+$conn = mysql_connect('localhost','prabhugl','','prabhugl_careers');
+
+
+if ($conn) {
+echo 'Connected successfully.';
+} else{
+die('Connection Error.');
+} 
+
+$sql = "SELECT 'Job Id', 'Position', 'Description' 'careers' ";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>". $row["Job Id"]. "</td><td> ". $row["Position"]. " </td><td>". $row["Description"] ."</td></tr> ";
+    }
+echo"</table>";
+}
+else {
+    echo "No results found";
+}
+
+$conn->close();
+}
+?> 
+
